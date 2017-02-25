@@ -51,7 +51,7 @@ describe('video player', function() {
   });
 
   it('should dynamically compute the youtube url', function() {
-    // Testing both cat element and js video element
+    // Testing both cat element and js video elemenrwt
     expect(catElement.find('iframe').first().attr('src')).to.contain(`https://www.youtube.com/embed/${fakeVideoData[0].id.videoId}`);
     expect(jsElement.find('iframe').first().attr('src')).to.contain(`https://www.youtube.com/embed/${moreFakeVideoData[0].id.videoId}`);
   });
@@ -62,6 +62,7 @@ describe('video player', function() {
 
   it('should not render a videoplayer if no video is provided', function() {
     expect(noVideoElement.find('iframe')).to.have.length.below(1);
+    console.log(JSON.stringify(noVideoElement.text()));
     expect(noVideoElement.text()).to.contain('Please wait');
   });
 });

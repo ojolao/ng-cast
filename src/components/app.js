@@ -1,15 +1,16 @@
 angular.module('video-player')
   .controller('AppCtrl', ['$scope', function($scope) {
+    $scope.allVideos = window.exampleVideoData;
+    $scope.length = $scope.allVideos.length;
+    $scope.video = [];
     $scope.selectVideo = function() {
     };
   }])
 
 .directive('app', function() {
   return {
-
     scope: {
       selectVideo: '<'
-
     },
     controllerAs: 'ctrl',
     bindToController: true,
@@ -18,8 +19,6 @@ angular.module('video-player')
     },
     templateUrl: 'src/templates/app.html'
   };
-
-
 }
 );
 
