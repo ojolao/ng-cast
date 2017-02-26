@@ -1,8 +1,7 @@
 angular.module('video-player')
 
-.controller('videoListController', function($scope) {
-  $scope.onClick = function() {
-  };
+.controller('videoListController', function() {
+
 })
 
 .directive('videoList', function() {
@@ -11,11 +10,10 @@ angular.module('video-player')
       videos: '<',
       onClick: '<' 
     }, 
+    restrict: 'E',
+    controller: 'videoListController',
     controllerAs: 'ctrl',
     bindToController: true,
-    controller: function($scope) {
-
-    },
     templateUrl: 'src/templates/videoList.html'
   };
 });

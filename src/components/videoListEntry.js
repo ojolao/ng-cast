@@ -1,6 +1,6 @@
 angular.module('video-player')
 
-.controller('videoListEntryController', function($scope) {
+.controller('videoListEntryController', function() {
  
 })
 
@@ -8,13 +8,12 @@ angular.module('video-player')
 
   return {
     scope: {
-      video: '<'
+      video: '<',
+      onClick: '<'
     },
+    controller: 'videoListEntryController',
     controllerAs: 'ctrl',
     bindToController: true,
-    controller: function($scope) {
-
-    },
     templateUrl: 'src/templates/videoListEntry.html'
   };
 });

@@ -1,24 +1,32 @@
 angular.module('video-player')
-  .controller('AppCtrl', ['$scope', function($scope) {
-    $scope.allVideos = window.exampleVideoData;
-    $scope.length = $scope.allVideos.length;
-    $scope.video = [];
-    $scope.selectVideo = function() {
+  .controller('AppCtrl', function(youTube) {
+    
+    this.searchService = youTube;
+   
+    this.selectVideo = (video) => {
+      this.currentVideo = video;  
     };
-  }])
+
+    this.searchResults = (data) => {
+      this.videos = data;
+      this.currentVideo = this.videos[0];
+    };
+
+    youTube.search('smoothiethecat', this.searchResults);
+  })
+
 
 .directive('app', function() {
   return {
     scope: {
-      selectVideo: '<'
     },
+    restrict: 'E',
+    controller: 'AppCtrl',
     controllerAs: 'ctrl',
     bindToController: true,
-    controller: function($scope) {
-      console.log($scope);
-    },
     templateUrl: 'src/templates/app.html'
   };
 }
 );
+
 
